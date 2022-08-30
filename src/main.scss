@@ -1,0 +1,103 @@
+$colode:blue;
+$headerBg:#252a3d;
+$leftbgcolor:#fff;
+$menuDefault:#595959;
+$submenuDefault:#888;
+$menuActive:#1890FF;
+$menuActiveBg:#E6F7FF;
+$borderColor:#EBEEF5;
+
+// flex布局	
+@mixin flex-style($direction,$wrap,$content,$items){
+	display: flex;
+	flex-direction:$direction;
+	flex-wrap:$wrap;
+	justify-content:$content;
+	align-items:$items;
+}
+
+//grid布局
+@mixin grid-style($columns,$rows,$gap,$flow){
+	display: grid;
+	grid-template-columns: repeat($columns); /* 相当于 1fr 1fr 1fr */
+	grid-template-rows: repeat($rows); /* fr单位可以将容器分为几等份 */
+	grid-gap:$gap; /* grid-column-gap 和 grid-row-gap的简写 */
+	grid-auto-flow: $flow;
+}
+
+
+
+//boxsizing
+@mixin boxsizing{
+	box-sizing: border-box;
+}
+
+
+//单文本缩略
+@mixin single-text($width){
+	width: $width;
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow:ellipsis; 
+}
+//多文本缩略
+@mixin multi-text ($height,$clamp){
+	-webkit-line-clamp:$clamp;
+	height: $height;
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+}
+
+
+//1px边框
+@mixin border-after($color){
+	position: relative;
+	&:after{
+		position: absolute;
+		z-index: 10;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		content: '';
+		-webkit-transform: scaleY(.5);
+		transform: scaleY(.5);
+		background-color: $color;
+	}
+}
+
+@mixin border-before($color) {
+	position: relative;
+	&:before{
+		position: absolute;
+		z-index: 10;
+		right: 0;
+		top: 0;
+		left: 0;
+		height: 1px;
+		content: '';
+		-webkit-transform: scaleY(.5);
+		transform: scaleY(.5);
+		background-color: $color;
+	}
+}
+
+@mixin scroll-bar-style($width,$height,$trackcolor,$thumbcolor) {
+    &::-webkit-scrollbar {
+        width: $width;
+        height: $height;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar-track {
+        background: $trackcolor;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $thumbcolor;
+        // border-radius:10px;
+    }
+}
+
+// 动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或者终止状态
+@mixin animation($actionName,$time,$line,$start,$playtime,$isfx,$status) {
+	animation: move 2s linear 1s 1 alternate forwards;
+}

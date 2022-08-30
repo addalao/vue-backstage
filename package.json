@@ -1,0 +1,34 @@
+{
+  "name": "vue3-vite-element-config",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^0.2.6",
+    "@jsdawn/vue3-tinymce": "^1.1.7",
+    "animate.css": "^4.1.1",
+    "axios": "^0.25.0",
+    "element-plus": "^2.2.8",
+    "mitt": "^3.0.0",
+    "sass": "^1.49.0",
+    "sortablejs": "^1.15.0",
+    "vite-plugin-compression": "^0.4.0",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-style-import": "^1.4.1",
+    "vue": "^3.2.25",
+    "vue-axios": "^3.4.0",
+    "vue-router": "^4.0.12",
+    "vuedraggable": "^4.1.0",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "unplugin-auto-import": "^0.5.11",
+    "unplugin-vue-components": "^0.17.13",
+    "vite": "^2.7.2"
+  }
+}
