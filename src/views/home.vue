@@ -68,7 +68,6 @@
             .main-content{
                 height: calc(100% - 40px);
                 padding:12px 12px;
-                background: #f9f9f9;
             }
             .copy-right{
                 height: 40px;
