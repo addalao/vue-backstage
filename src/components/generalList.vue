@@ -16,6 +16,7 @@
         :searchOptions="searchOptionsConditionQuery.options"
         @reset="reset" 
         @search="search"
+        @select = 'getSelectVal'
     >
         <TopBtn v-if="navBarTxt.topBtnList.value" @handle="topEventHandleObj" :btnList="navBarTxt.topBtnList.value"></TopBtn><!-- 搜索栏按钮 -->
     </ConditionQuery>
@@ -344,7 +345,7 @@
     </el-dialog>
 </template>
 <script setup>
-    import {watchEffect,ref,shallowRef,reactive,watch,defineAsyncComponent, computed,onMounted,nextTick} from 'vue'
+    import {ref,shallowRef,reactive,watch,defineAsyncComponent, computed,onMounted,nextTick} from 'vue'
     import GeneralForm from './generalForm.vue'
     import CurrentNavBar from '@/common/currentNavBar.js'
     import {showConfirm} from '@/common/showConfirm.js'
@@ -377,7 +378,10 @@
        }
     })//模糊搜索配置
     const searchOptionsConditionQuery = ref({
-        options:[]
+        options:[],
+        getSelectVal(e){
+            console.log('yemian')
+        }
     })//条件搜索配置
     const searchOption = reactive({//搜索配置
         searchType:'fuzzyQuery',//搜索类型  fuzzyQuery模糊搜索  conditionQuery 多条件搜索  customQuery自定义搜索
@@ -441,7 +445,8 @@
     }
 
     //搜索事件
-    const search = (e)=>{
+    let search = (e)=>{
+        console.log('页面执行')
         if(Object.keys(e).length){
             for(let key in e){
                 if(e[key] || e[key]===0){
@@ -466,7 +471,8 @@
     }
     //搜索栏自定义选择数据
     const getSelectVal = (e)=>{
-        const [sitem,item] = e
+        // const [sitem,item] = e
+        searchOptionsConditionQuery.value.getSelectVal(e)
     }
 
     //顶部可配按钮点击事件
@@ -488,11 +494,13 @@
         },
         //编辑
         editData:(item,bitem,scope)=>{
+            
 			handleEventObj.resetFormDialogWidth()
             formDialogOption.value.formTitle = navBarTxt.subMenuItem.value.name+'--编辑'
             formDialogOption.value.openType = 'edit'
             formDialogOption.value.item = item
             formDialogOption.value.showFormDialog = true
+
         },
         //上移一位
         moveUp:async (item,bitem,scope)=>{
@@ -689,7 +697,8 @@
 			    customBtnEvent,
 				_axios,
 				showToast,
-				showConfirm
+				showConfirm,
+                
 			)
 			getTableData()
 		}

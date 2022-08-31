@@ -150,7 +150,7 @@
                     v-model="formOption.formProp[item.prop]" :placeholder="'请选择'+item.label" :clearable="!!item.clearable?item.clearable:true"
                     :multiple="item.multiple"
                     :disabled="type=='edit' && item.disabled"
-                    @change="fromHndleEventObj['selectChangeItem']($event,item.prop)"
+                    @change="fromHndleEventObj['selectChangeItem']($event,item.prop,item.vkey?opitem[item.vkey]:opitem.value)"
                 >
                     <el-option
                         v-for="(opitem,opindex) in item.option"
@@ -375,7 +375,7 @@
     // import WangEditor from '../components/editor/wangEditor.vue';
     import Vue3Tinymce from '@jsdawn/vue3-tinymce';
     import BottomHandle from '../components/bottomHandle.vue';
-    // import {showToast} from 'element-plus'
+    // import {ElMessage} from 'element-plus'
 	import {showConfirm} from '../common/showConfirm.js'
     import _axios from "../plugins/axios"
     import {checkMobile,checkPhone,getStorage} from "@/utils/tools.js"
@@ -541,7 +541,7 @@
     
     //外部自定义js逻辑处理引入
     // watchEffect(async () => {
-		
+       
     // })
     initFormConfig()
     function initFormConfig(){
