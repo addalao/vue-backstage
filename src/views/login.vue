@@ -31,9 +31,11 @@
 	import _axios from '@/plugins/axios';
     import { useRouter,useRoute } from 'vue-router';
     import { useStore } from 'vuex';
-    import { ElMessage } from 'element-plus'
+    // import { showToast } from 'element-plus'
+    
     import {setToken} from '@/utils/tools.js'
     import { ElLoading } from 'element-plus'
+import showToast from '@/common/showToast';
 
     const router = useRouter()
     const route = useRoute()
@@ -56,19 +58,19 @@
 	};
 
 	const login = async ()=>{
-        if(!ruleForm.username || !ruleForm.password) return ElMessage.warning('请输入账号或密码!')
+        if(!ruleForm.username || !ruleForm.password) return showToast.warning('请输入账号或密码!')
         const loadingInstance = ElLoading.service({text:'正在登录'})
         try {
             const res = await _axios('post', '/sys/yunke/mgr/adminlogin', ruleForm);
             loadingInstance.close()
-            ElMessage.success('登录成功!')
+            showToast.success('登录成功')
             const {token,userInfo} = res
             store.commit('user/setUserInfo',JSON.stringify(userInfo))
             setToken(token.tokenValue)
             store.commit('user/setToken',JSON.stringify(token))
             router.push('/index')
         } catch (error) {
-            ElMessage.error('登陆失败!')
+            showToast.error('登陆失败!')
             loadingInstance.close()
         }
 	}
