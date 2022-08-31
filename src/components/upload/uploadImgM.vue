@@ -29,7 +29,7 @@
 <script setup>
     import { nextTick, ref,watch } from 'vue'
     import { uploadpath } from '@/main.js'
-    import { ElMessage } from 'element-plus'
+    // import { showToast } from 'element-plus'
     import {getStorage} from "../../utils/tools.js"
 
     const props = defineProps({
@@ -167,10 +167,10 @@
         // const isLt2M = file.size / 1024 / 1024 < 2
 
         // if (!isJPG) {
-        //     ElMessage.error('Avatar picture must be JPG format!')
+        //     showToast.error('Avatar picture must be JPG format!')
         // }
         // if (!isLt2M) {
-        //     ElMessage.error('上传图片大小不能超过2M!')
+        //     showToast.error('上传图片大小不能超过2M!')
         // }
         // return isLt2M
         // return isJPG && isLt2M

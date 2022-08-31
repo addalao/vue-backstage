@@ -13,22 +13,22 @@ export default function(
     handleEventObj,//顶部及右侧操作按钮事件
     customBtnEvent,//自定义事件
 ){
-	//搜索
-	searchOptionsFuzzyQuery.val = {
-	    keys:'title',
-	    placeholder:'案例标题'
-	}
+	// //搜索
+	// searchOptionsFuzzyQuery.val = {
+	//     keys:'title',
+	//     placeholder:'案例标题'
+	// }
 
-    //设置新建表单默认值
-    formDialogOption.defaultItem = {type:1}
-    formDialogOption.dialogWidth = "30%"
+    // //设置新建表单默认值
+    // formDialogOption.defaultItem = {type:1}
+    // formDialogOption.dialogWidth = "30%"
 
-    tableRequestOption.url = '/sys/cooperativePartner/page'
+    // tableRequestOption.url = '/sys/cooperativePartner/page'
 
-    //删除参数
-    tableDelDataOption.method = 'post'
-    tableDelDataOption.type = 'bodyArr'
-    tableDelDataOption.url = '/sys/cooperativePartner/remove'
+    // //删除参数
+    // tableDelDataOption.method = 'post'
+    // tableDelDataOption.type = 'bodyArr'
+    // tableDelDataOption.url = '/sys/cooperativePartner/remove'
     
     //绑定权限
     // handleEventObj.distributeRight = (item)=>{

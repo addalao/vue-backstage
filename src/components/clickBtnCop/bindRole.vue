@@ -13,7 +13,7 @@
 <script setup>
     import { ref } from "vue"
     import BottomHandle from '../bottomHandle.vue';
-    import {ElMessage} from 'element-plus'
+    import {showToast} from 'element-plus'
     import _axios from '@/plugins/axios';
     
     const props = defineProps({
@@ -46,7 +46,7 @@
 
     async function  bindRole(id){
         await _axios('get',`/sys/sysRole/roleBingUser?roleId=${formProp.value.roleId}&userId=${id}`,{},true)
-        ElMessage.success("账号创建成功");
+        showToast.success("账号创建成功");
         emits('confirm',callBackObj)
     }
 

@@ -247,7 +247,7 @@
 
 <script setup>
     // import {menuList} from '@/common/test.js'
-    // import {ElMessage} from "element-plus"
+    // import {showToast} from "element-plus"
     import _axios from '@/plugins/axios'
     import Icons from '@/components/icons.vue'
     import Btns from '@/components/btns.vue'

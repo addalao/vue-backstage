@@ -248,7 +248,7 @@
     // import WangEditor from '../components/editor/wangEditor.vue';
 	 import Vue3Tinymce from '@jsdawn/vue3-tinymce';
     import BottomHandle from '../components/bottomHandle.vue';
-    // import {ElMessage} from 'element-plus'
+    // import {showToast} from 'element-plus'
     import showToast from "../common/showToast.js"
     import _axios from "../plugins/axios"
     import {checkMobile,checkPhone} from "@/utils/tools.js"
@@ -456,10 +456,10 @@
                     // }
                     // try {
                     //     await _axios(methods || 'post',url,formOption.formProp,true)
-                    //     ElMessage.success("保存成功");
+                    //     showToast.success("保存成功");
                     //     emits('formConfirm')
                     // } catch (error) {
-                    //     ElMessage.error("保存出错");
+                    //     showToast.error("保存出错");
                     // }
                 } else {
                     showToast.warning("请检查并完善表单再提交！");

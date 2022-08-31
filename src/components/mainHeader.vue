@@ -2,7 +2,7 @@
     <div class="logo-bar">
         <div class="logo">
             <img src="../assets/logo.png">
-            <span>{{htmltitle}}</span>
+            <span>本同大数据</span>
             <span class="line"></span>
         </div>
         <!-- <div class="top-menu-list">
@@ -29,7 +29,7 @@
     <!-- <operate-in-process :show="showLoading" title="正在退出···"></operate-in-process> -->
 </template>
 <script>
-    export default{
+    export default {
         name:"MainHeader"
     }
 </script>

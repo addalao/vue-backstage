@@ -50,7 +50,7 @@
 </script>
 <script setup>
     import {uploadpath} from '@/main.js' 
-    // import {ElMessage} from 'element-plus'
+    // import {showToast} from 'element-plus'
     import { ref, watch,nextTick } from 'vue'
 	import {getStorage} from "../../utils/tools.js"
     import draggable from "vuedraggable";
@@ -173,10 +173,10 @@
         // const isLt2M = file.size / 1024 / 1024 < 2
 
         // if (!isJPG) {
-        //     ElMessage.error('Avatar picture must be JPG format!')
+        //     showToast.error('Avatar picture must be JPG format!')
         // }
         // if (!isLt2M) {
-        //     ElMessage.error('上传图片大小不能超过2M!')
+        //     showToast.error('上传图片大小不能超过2M!')
         // }
         // return isLt2M
         // return isJPG && isLt2M

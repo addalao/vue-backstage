@@ -303,7 +303,7 @@
 
 <script setup>
     // import {menuList} from '@/common/test.js'
-    import {ElMessage} from "element-plus"
+    import {showToast} from "element-plus"
     import _axios from '@/plugins/axios'
     import Icons from '@/components/icons.vue'
     import Btns from '@/components/btns.vue'
@@ -399,7 +399,7 @@
     //删除菜单
     const delMenu = async (item,index,type)=>{ 
         await _axios("post",`/sys/sysPermission/delete?id=${item.id}`,{},true)
-        ElMessage.success("删除成功");
+        showToast.success("删除成功");
         if(type=='first'){
             getSystemMenuList()
         }else{
@@ -429,7 +429,7 @@
     //删除按钮
     const delBtn = async (item,index)=>{
         await _axios("post",`/sys/sysPermission/delete?id=${item.id}`,{},true)
-        ElMessage.success("删除成功");
+        showToast.success("删除成功");
         getSystemMenuListById(drawerInfo.value.id)
         emitter.emit('refreshMenuList')
     }
@@ -462,7 +462,7 @@
             if (valid) {
                 try {
                     await _axios('post',`/sys/sysPermission/savaOrupdate`,formProp.value,true)
-                    ElMessage.success("保存成功");
+                    showToast.success("保存成功");
                     menuDialogVisible.value = false
                     if(controFormObj.createType==1){
                         getSystemMenuList()
@@ -471,10 +471,10 @@
                     }
                     emitter.emit('refreshMenuList')
                 } catch (error) {
-                    ElMessage.success("保存出错");
+                    showToast.success("保存出错");
                 }
             } else {
-                ElMessage.success("请检查并完善表单再提交！");
+                showToast.success("请检查并完善表单再提交！");
                 return false
             }
         })
@@ -486,15 +486,15 @@
             if (valid) {
                 try {
                     await _axios('post',`/sys/sysPermission/savaOrupdate`,btnFormProp.value,true)
-                    ElMessage.success("保存成功");
+                    showToast.success("保存成功");
                     showBtnDialog.value = false
                     getSystemMenuListById(drawerInfo.value.id)
                     emitter.emit('refreshMenuList')
                 } catch (error) {
-                    ElMessage.success("保存出错");
+                    showToast.success("保存出错");
                 }
             } else {
-                ElMessage.success("请检查并完善表单再提交！");
+                showToast.success("请检查并完善表单再提交！");
                 return false
             }
         })

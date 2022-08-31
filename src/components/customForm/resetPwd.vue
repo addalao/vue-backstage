@@ -5,7 +5,7 @@
 <script setup>
     import { ref } from "vue"
     import BottomHandle from '../bottomHandle.vue';
-    import {ElMessage} from 'element-plus'
+    import {showToast} from 'element-plus'
     import _axios from '@/plugins/axios';
     
      const props = defineProps({
@@ -31,7 +31,7 @@
             id:props.item.id,
             password:password.value
         },true)
-        ElMessage.success("密码修改成功");
+        showToast.success("密码修改成功");
         emits('confirm')
     } 
 </script>

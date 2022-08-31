@@ -13,7 +13,7 @@ export default function(
     handleEventObj,//顶部及右侧操作按钮事件
     customBtnEvent,//自定义事件
 	_axios,
-	ElMessage,
+	showToast,
 	customToast
 ){
 	//搜索
@@ -37,7 +37,7 @@ export default function(
     customBtnEvent.tagsClose = (tag,row,prop)=>{
         customToast('是否解除该角色权限？',async ()=>{
             await _axios('get',`/sys/sysRole/deletedUserRoles?roleId=${tag.id}&userId=${row.id}`,{},true)
-            ElMessage.success('该角色已解绑')
+            showToast.success('该角色已解绑')
             customBtnEvent.refreshList()
             return true //关闭toast
         })
